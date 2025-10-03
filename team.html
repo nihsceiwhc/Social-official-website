@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>幹部名單與講師陣容 | NIHS_CE_IWHC白帽社群官網</title>
+    <!-- 載入 Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 設定主要字體為 Inter (具現代感) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* 自定義滾動條樣式，更具黑客風格 */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background: #34d399; border-radius: 4px; }
+        ::-webkit-scrollbar-track { background: #000000; }
+
+        .container-section { max-width: 1200px; margin-left: auto; margin-right: auto; padding: 4rem 1rem; }
+        .cyber-gradient {
+            background-image: linear-gradient(45deg, #10b981, #34d399, #6ee7b7); 
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+        }
+        .member-card { transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); }
+        .lecturer-card:hover { transform: translateY(-5px); border-color: #34d399; box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4); }
+        .executive-card:hover { transform: translateY(-5px); border-color: #06b6d4; box-shadow: 0 10px 20px rgba(6, 182, 212, 0.4); }
+        .member-image { border: 4px solid; }
+        
+    </style>
+</head>
+<body class="bg-gray-950 text-white min-h-screen">
+    
+    <!-- 訊息提示框 (在此版本中已無作用，因為移除了 Firebase) -->
+    <div id="message-box" role="alert" class="hidden"></div>
+
+    <!-- 導覽列 (Navigation) -->
+    <header class="sticky top-0 z-50 bg-gray-950/90 backdrop-blur-sm shadow-xl border-b border-emerald-900">
+        <nav class="container-section py-4 flex justify-between items-center px-4 sm:px-6">
+            <div class="text-2xl font-bold tracking-widest text-emerald-400">
+                NIHS_CE_IWHC白帽社群官網 <span class="text-gray-400">| CLUB</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-lg">
+                <a href="index.html" class="hover:text-emerald-400 transition duration-200">首頁</a>
+                <a href="achievements.html" class="hover:text-emerald-400 transition duration-200">我們的故事</a>
+                <a href="team.html" class="text-emerald-400 font-bold transition duration-200 border-b-2 border-emerald-400 pb-1">幹部名單</a>
+                <!-- 合作社團連結使用靛色高亮，與 team 區隔 -->
+                <a href="partners.html" class="hover:text-indigo-400 transition duration-200">🤝 合作社團</a>
+                <a href="repo.html" class="hover:text-emerald-400 transition duration-200">技術文件庫</a>
+                <a href="Q&A.html" class="hover:text-emerald-400 transition duration-200">Q&A</a>
+            </div>
+            <button class="md:hidden text-emerald-400 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <main class="bg-gray-900">
+        <!-- 核心團隊 (Team Section) -->
+        <section id="team" class="container-section">
+            <h2 class="text-5xl font-extrabold text-center mb-4">
+                <span class="cyber-gradient">團隊名單</span>
+            </h2>
+            <p id="status-message" class="text-center text-lg text-gray-500 max-w-4xl mx-auto mb-16 font-mono"></p>
+            
+            <!-- 區塊 1: 講師陣容 (Lecturers/Instructors) -->
+            <h3 class="text-4xl font-bold text-emerald-400 border-b border-emerald-700 pb-2 mb-10 mt-16">
+                🎓 講師陣容 | LECTURERS
+            </h3>
+            <div id="lecturer-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 講師卡片將由 JS 填充 -->
+            </div>
+
+            <!-- 區塊 2: 核心幹部 (Core Executives) -->
+            <!-- 保持 lg:grid-cols-4 以便新增的成員可以換行，達成多行顯示 -->
+            <h3 class="text-4xl font-bold text-cyan-400 border-b border-cyan-700 pb-2 mb-10 mt-20">
+                🛡️ 核心幹部 | EXECUTIVES
+            </h3>
+            <div id="executive-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 幹部卡片將由 JS 填充 -->
+            </div>
+
+        </section>
+    </main>
+
+    <!-- 頁腳 (Footer) -->
+    <footer class="bg-gray-950 border-t border-emerald-900 mt-12">
+        <div class="container-section text-center text-gray-500 text-sm py-8">
+            <p>&copy; NIHS_CE_IWHC白帽社群官網</p>
+            <p>聯絡我們：nihsceiwhc@gmail.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // ----------------------------------------------------
+        // 核心資料: 請直接修改此處的陣列內容來更新成員資訊
+        // ----------------------------------------------------
+        const membersData = [
+            // --- 講師陣容 (roleType: 'lecturer') ---
+            { 
+                id: 'lecturer-a', 
+                name: 'MING 老師', 
+                title: '專業指導 (ISIP/IPAS資安中級證照)', 
+                description: '專長於資安技術與網路攻防、滲透測試，社團的知識基石。', 
+                imageUrl: '03.png', // 圖片路徑：請將圖片放在專案的 /images/lecturer-a.jpg
+                roleType: 'lecturer' 
+            },
+            { 
+                id: 'lecturer-b', 
+                name: '?老師', 
+                title: ' 缺指導老師QAQ', 
+                description: '缺指導老師QAQ', 
+                imageUrl: '04.png', // 圖片路徑：請將圖片放在專案的 /images/lecturer-b.jpg
+                roleType: 'lecturer' 
+            },
+            // --- 核心幹部 (roleType: 'executive') ---
+            { 
+                id: 'president', 
+                name: '柚子/0ping', 
+                title: '助教長', 
+                description: '網站開發、網頁安全與校內外活動聯絡窗口。', 
+                imageUrl: '09018.jpg', // 圖片路徑：請將圖片放在專案的 /images/president.jpg
+                roleType: 'executive' 
+            },
+            { 
+                id: 'vice-president', 
+                name: 'TC', 
+                title: '助教', 
+                description: '樹梅派攻擊/社交工程', 
+                imageUrl: 'TC.jpg', // 圖片路徑：請將圖片放在專案的 /images/vice-president.jpg
+                roleType: 'executive' 
+            },
+            { 
+                id: 'cto', 
+                name: ' zyy_', 
+                title: '助教', 
+                description: '負責教學資通安全/APCS檢定。', 
+                imageUrl: '003.jpg', // 圖片路徑：請將圖片放在專案的 /images/cto.jpg
+                roleType: 'executive' 
+            },
+            { 
+                id: 'general-affairs', 
+                name: '南極熊', 
+                title: '美編', 
+                description: '負責社群美術設計與活動紀錄。', 
+                imageUrl: '002.jpg', // 圖片路徑：請將圖片放在專案的 /images/general-affairs.jpg
+                roleType: 'executive' 
+            },
+            // --- 新增的四個幹部欄位，達成兩行顯示 ---
+            { 
+                id: 'tech-sec-1', 
+                name: '', 
+                title: '空缺', 
+                description: '。', 
+                imageUrl: './images/placeholder-male-1.jpg', // **請替換成真實圖片路徑**
+                roleType: 'executive' 
+            },
+
+            { 
+                id: 'pr-chief', 
+                name: '', 
+                title: '空缺', 
+                description: '', 
+                imageUrl: './images/placeholder-male-2.jpg', // **請替換成真實圖片路徑**
+                roleType: 'executive' 
+            },
+            { 
+                id: 'treasurer', 
+                name: ' ', 
+                title: '空缺', 
+                description: '', 
+                imageUrl: './images/placeholder-female-2.jpg', // **請替換成真實圖片路徑**
+                roleType: 'executive' 
+            },
+        ];
+
+        /**
+         * 根據數據渲染 UI
+         */
+        function renderMembers(members) {
+            const lecturerContainer = document.getElementById('lecturer-list');
+            const executiveContainer = document.getElementById('executive-list');
+            
+            // 清空舊內容
+            lecturerContainer.innerHTML = '';
+            executiveContainer.innerHTML = '';
+            
+            // 根據 roleType 將成員數據分類
+            const lecturers = members.filter(m => m.roleType === 'lecturer');
+            const executives = members.filter(m => m.roleType === 'executive');
+
+            // 渲染講師
+            lecturers.forEach(member => {
+                const cardClass = 'lecturer-card border-emerald-800';
+                const imageBorderClass = 'border-emerald-400';
+                const titleColorClass = 'text-emerald-300';
+                
+                const cardHtml = `
+                    <div class="member-card ${cardClass} bg-gray-800 p-6 rounded-xl border-4 flex flex-col items-center text-center">
+                        <img class="member-image w-36 h-36 object-cover rounded-full mb-4 ${imageBorderClass}" 
+                             src="${member.imageUrl}" 
+                             alt="${member.name} 的頭像"
+                             onerror="this.onerror=null;this.src='https://placehold.co/150x150/111827/ffffff?text=No+Image+Found'"
+                        >
+                        <h4 class="text-2xl font-extrabold text-white mt-3">${member.name}</h4>
+                        <p class="text-lg font-mono ${titleColorClass} mb-4">${member.title}</p>
+                        <p class="text-gray-400">${member.description}</p>
+                    </div>
+                `;
+                lecturerContainer.innerHTML += cardHtml;
+            });
+
+            // 渲染幹部
+            executives.forEach(member => {
+                const cardClass = 'executive-card border-cyan-800';
+                const imageBorderClass = 'border-cyan-400';
+                const titleColorClass = 'text-cyan-300';
+                
+                const cardHtml = `
+                    <div class="member-card ${cardClass} bg-gray-800 p-6 rounded-xl border-4 flex flex-col items-center text-center">
+                        <img class="member-image w-32 h-32 object-cover rounded-full mb-4 ${imageBorderClass}" 
+                             src="${member.imageUrl}" 
+                             alt="${member.name} 的頭像"
+                             onerror="this.onerror=null;this.src='https://placehold.co/150x150/111827/ffffff?text=No+Image+Found'"
+                        >
+                        <h4 class="text-2xl font-extrabold text-white mt-3">${member.name}</h4>
+                        <p class="text-lg font-mono ${titleColorClass} mb-4">${member.title}</p>
+                        <p class="text-gray-400">${member.description}</p>
+                    </div>
+                `;
+                executiveContainer.innerHTML += cardHtml;
+            });
+        }
+        
+        // 網頁載入完成後，執行渲染
+        window.onload = () => {
+            renderMembers(membersData);
+        };
+    </script>
+</body>
+</html>

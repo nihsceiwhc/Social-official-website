@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤝 合作社團與組織 | NIHS_CE_IWHC白帽社群官網</title>
+    <!-- 載入 Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 設定主要字體為 Inter (具現代感) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* 自定義滾動條樣式，更具黑客風格 */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background: #34d399; border-radius: 4px; }
+        ::-webkit-scrollbar-track { background: #000000; }
+
+        .container-section { max-width: 1200px; margin-left: auto; margin-right: auto; padding: 4rem 1rem; }
+        .cyber-gradient {
+            /* 使用稍微不同的紫色/靛色漸變，以區分團隊頁面 (綠色) */
+            background-image: linear-gradient(45deg, #6366f1, #8b5cf6, #a78bfa); 
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+        }
+        
+         /* 自定義滾動條樣式，更具黑客風格 */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background: #34d399; border-radius: 4px; }
+        ::-webkit-scrollbar-track { background: #000000; }
+
+        .container-section { max-width: 1200px; margin-left: auto; margin-right: auto; padding: 4rem 1rem; }
+        .cyber-gradient {
+            background-image: linear-gradient(45deg, #10b981, #34d399, #6ee7b7); 
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+        }
+        .member-card { transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); }
+        .lecturer-card:hover { transform: translateY(-5px); border-color: #34d399; box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4); }
+        .executive-card:hover { transform: translateY(-5px); border-color: #06b6d4; box-shadow: 0 10px 20px rgba(6, 182, 212, 0.4); }
+        .member-image { border: 4px solid; }
+    </style>
+</head>
+<body class="bg-gray-950 text-white min-h-screen">
+    
+    <!-- 導覽列 (Navigation) -->
+    <header class="sticky top-0 z-50 bg-gray-950/90 backdrop-blur-sm shadow-xl border-b border-emerald-900">
+        <nav class="container-section py-4 flex justify-between items-center px-4 sm:px-6">
+            <div class="text-2xl font-bold tracking-widest text-emerald-400">
+                NIHS_CE_IWHC白帽社群官網 <span class="text-gray-400">| CLUB</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-lg">
+                <a href="index.html" class="hover:text-emerald-400 transition duration-200">首頁</a>
+                <a href="achievements.html" class="hover:text-emerald-400 transition duration-200">我們的故事</a>
+                <a href="team.html" class="hover:text-emerald-400 transition duration-200">幹部名單</a>
+                <!-- 合作社團 高亮 -->
+                <a href="partners.html" class="text-indigo-400 font-bold transition duration-200 border-b-2 border-indigo-400 pb-1">🤝 合作社團</a>
+                <a href="repo.html" class="hover:text-emerald-400 transition duration-200">技術文件庫</a>
+                <a href="Q&A.html" class="hover:text-emerald-400 transition duration-200">Q&A</a>
+            </div>
+            <button class="md:hidden text-emerald-400 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <main class="bg-gray-900">
+        <!-- 合作社團 (Partners Section) -->
+        <section id="partners" class="container-section">
+            <h2 class="text-5xl font-extrabold text-center mb-4">
+                <span class="cyber-gradient">🤝 合作社團與組織</span>
+            </h2>
+            <p id="status-message" class="text-center text-lg text-gray-500 max-w-4xl mx-auto mb-16 font-mono">
+                // > 共同成長，擴大資安與共同學習的影響力。
+            </p>
+            
+            <div id="partner-list" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
+                <!-- 夥伴卡片將由 JS 填充 -->
+            </div>
+
+            <!-- 呼籲加入的區塊 -->
+            <div class="mt-20 text-center bg-gray-800 p-10 rounded-xl border border-indigo-700 shadow-lg">
+                <h3 class="text-3xl font-bold text-indigo-400 mb-4">
+                    尋求新的合作夥伴連線
+                </h3>
+                <p class="text-gray-400 mb-6 max-w-2xl mx-auto">
+                    如果您的組織或社團專注於網路安全、APCS檢定、特選或相關技術領域，並希望與我們進行知識共享與專案協作，請隨時聯繫我們。
+                </p>
+                <a href="mailto:nihsceiwhc@gmail.com" class="cta-button inline-block bg-indigo-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-indigo-600 uppercase tracking-wider">
+                    發送合作請求
+                </a>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- 頁腳 (Footer) -->
+    <footer class="bg-gray-950 border-t border-indigo-900 mt-12">
+        <div class="container-section text-center text-gray-500 text-sm py-8">
+            <p>&copy;  NIHS_CE_IWHC白帽社群官網</p>
+            <p>聯絡我們：nihsceiwhc@gmail.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // ----------------------------------------------------
+        // 核心資料: 請直接修改此處的陣列內容來更新合作夥伴資訊
+        // ----------------------------------------------------
+        const partnersData = [
+            {
+                id: 'partner-a',
+                name: '臺北市立內湖高級中學資訊班',
+                focus: 'APCS檢定',
+                description: '一個專注於資訊相關技術與APCS檢定的高中班，致力於培養學生的程式設計與問題解決能力。',
+                imageUrl: '00.png', // 圖片路徑：請將 Logo 放在專案的 /images/logo-taipei-sec.png
+                link: 'https://www.instagram.com/nhisc._.35th',
+            },
+            {
+                id: 'partner-b',
+                name: '台南市二中資訊研究社',
+                focus: '資訊安全',
+                description: '專注於網路安全、程式設計與CTF競賽，致力於提升跨校學生的資安技能與實戰經驗。',
+                imageUrl: '01.jpg', // 圖片路徑：請將 Logo 放在專案的 /images/logo-ics-lab.png
+                link: 'https://www.instagram.com/tnssh_ciss31_club',
+            },
+            {
+                id: 'partner-c',
+                name: 'LLM大型語言模型學生社群',
+                focus: 'AI與大型語言模型',
+                description: '一個專注於AI技術與大型語言模型應用的學生社群，致力於推動AI技術在校園內的普及與應用。',
+                imageUrl: '000.png', // 圖片路徑：請將 Logo 放在專案的 /images/logo-coding-club.png
+                link: 'https://www.instagram.com/std_dllm_',
+            },  
+        ];
+
+        /**
+         * 根據數據渲染 UI
+         */
+        function renderPartners(partners) {
+            const container = document.getElementById('partner-list');
+            
+            // 清空舊內容
+            container.innerHTML = '';
+            
+            partners.forEach(partner => {
+                const cardHtml = `
+                    <div class="partner-card bg-gray-800 p-8 rounded-xl flex flex-col items-center text-center">
+                        <img class="w-24 h-24 object-contain rounded-lg mb-4 bg-gray-700 p-2" 
+                             src="${partner.imageUrl}" 
+                             alt="${partner.name} Logo"
+                             onerror="this.onerror=null;this.src='https://placehold.co/100x100/111827/ffffff?text=${partner.id}'"
+                        >
+                        <h4 class="text-3xl font-extrabold text-white mt-3">${partner.name}</h4>
+                        <p class="text-lg font-mono text-indigo-300 mb-4 border-b border-indigo-800 pb-2 w-full">${partner.focus}</p>
+                        <p class="text-gray-400 mb-6 flex-grow">${partner.description}</p>
+                        
+                        <a href="${partner.link}" target="_blank" class="cta-button inline-block bg-indigo-500 text-white font-semibold py-2 px-6 rounded-full hover:bg-indigo-600 text-sm">
+                            了解更多 / 前往網站 →
+                        </a>
+                    </div>
+                `;
+                container.innerHTML += cardHtml;
+            });
+        }
+        
+        // 網頁載入完成後，執行渲染
+        window.onload = () => {
+            renderPartners(partnersData);
+            // 由於導覽列與 team.html 共用，這邊也更新一下 team.html 的導覽列，確保連結圖示一致性
+            updateTeamNavPartnersLink();
+        };
+
+        function updateTeamNavPartnersLink() {
+             const teamPartnersLink = document.querySelector('a[href="partners.html"]');
+             if (teamPartnersLink) {
+                 teamPartnersLink.innerHTML = '🤝 合作社團';
+                 teamPartnersLink.classList.remove('text-emerald-400', 'border-emerald-400');
+                 teamPartnersLink.classList.add('text-indigo-400', 'border-indigo-400');
+             }
+        }
+    </script>
+</body>
+</html>

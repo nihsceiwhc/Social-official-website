@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>疑問與解答 | NIHS_CE_IWHC白帽社群官網 </title>
+    <!-- 載入 Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 設定主要字體為 Inter (具現代感) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* 自定義滾動條樣式，使用霓虹綠，更具黑客風格 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #34d399; /* Neon Green: Emerald-400 */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000000; /* Pure Black */
+        }
+
+        /* 讓所有區塊的內容最大寬度保持在 1200px 並居中 */
+        .container-section {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 4rem 1rem;
+        }
+
+        /* 標題動畫效果：霓虹漸變 */
+        .cyber-gradient {
+            background-image: linear-gradient(45deg, #10b981, #34d399, #6ee7b7); 
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* FAQ 問題項目的一致樣式 */
+        .faq-item {
+            border: 1px solid #1f2937; /* Gray-800 */
+            transition: all 0.2s ease-in-out;
+        }
+        .faq-item:hover {
+            border-color: #059669; /* Emerald-600 */
+            box-shadow: 0 0 8px rgba(16, 185, 129, 0.3); /* Emerald-500 glow */
+        }
+
+        /* details/summary 樣式 (與 repo.html 保持一致) */
+        details summary {
+            cursor: pointer;
+            padding: 1rem 1.5rem;
+            list-style: none; /* 隱藏原生箭頭 */
+            position: relative;
+        }
+        details summary:before {
+            content: '▶'; /* 展開指示符號 */
+            position: absolute;
+            left: 1rem;
+            color: #34d399; /* Neon Green */
+            transform: rotate(0);
+            transition: transform 0.2s ease;
+        }
+        details[open] summary:before {
+            content: '▼';
+            transform: rotate(0);
+        }
+        .summary-title {
+            margin-left: 1.5rem; /* 給指示符號留空間 */
+            font-weight: 600;
+        }
+        .answer-content {
+            padding: 1rem 1.5rem 1.5rem 4rem; /* 確保內容不會被箭頭覆蓋 */
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-white min-h-screen">
+
+    <!-- 導覽列 (Navigation) -->
+    <header class="sticky top-0 z-50 bg-gray-950/90 backdrop-blur-sm shadow-xl border-b border-emerald-900">
+        <nav class="container-section py-4 flex justify-between items-center px-4 sm:px-6">
+            <div class="text-2xl font-bold tracking-widest text-emerald-400">
+                NIHS_CE_IWHC白帽社群官網 <span class="text-gray-400">| CLUB</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-lg">
+                <a href="index.html" class="hover:text-emerald-400 transition duration-200">首頁</a>
+                <a href="achievements.html" class="hover:text-emerald-400 transition duration-200">我們的故事</a>
+                <a href="team.html" class="hover:text-emerald-400 transition duration-200">幹部名單</a>
+                <a href="partners.html" class="hover:text-emerald-400 transition duration-200">🤝 合作社團</a>
+                <a href="repo.html" class="hover:text-emerald-400 transition duration-200">技術文件庫</a>
+                <!-- Q&A 高亮 -->
+                <a href="faq.html" class="text-emerald-400 font-bold transition duration-200 border-b-2 border-emerald-400 pb-1">Q&A</a>
+            </div>
+            <button class="md:hidden text-emerald-400 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <main class="bg-gray-900">
+        <!-- Q&A Section -->
+        <section id="faq" class="container-section min-h-screen">
+            <h2 class="text-5xl font-extrabold text-center mb-10">
+                <span class="cyber-gradient">疑問與解答 (Q&A)</span>
+            </h2>
+            <p class="text-center text-emerald-400 text-xl font-mono mb-16"></p>
+            <div class="space-y-8 max-w-4xl mx-auto">
+                <!-- 區塊 1: 關於團隊 -->
+                <details class="bg-gray-900 border border-emerald-700 rounded-xl shadow-xl" open>
+                    <summary class="text-2xl font-bold text-emerald-400 bg-gray-800 rounded-t-xl hover:bg-gray-700 transition duration-200">
+                        <span class="summary-title">關於團隊 (About the Team)</span>
+                    </summary>
+                    <div class="p-6 space-y-4">
+                        
+                        <!-- Q1 -->
+                        <details class="bg-gray-800 rounded-lg faq-item">
+                            <summary class="text-lg text-white hover:text-emerald-300">
+                                <span class="summary-title">1. 我們團隊的目標和核心價值是什麼？</span>
+                            </summary>
+                            <div class="answer-content border-t border-gray-700 text-gray-400">
+                                我們的核心目標是**整合控制技術與網路安全知識**。我們相信未來的資安工程師必須同時精通硬體控制系統（OT）和資訊安全（IT），以應對工業物聯網（IIoT）帶來的挑戰。我們的價值觀是：實戰、協作、知識共享。
+                            </div>
+                        </details>
+
+                        <!-- Q2 -->
+                        <details class="bg-gray-800 rounded-lg faq-item">
+                            <summary class="text-lg text-white hover:text-emerald-300">
+                                <span class="summary-title">2. 團隊主要由哪些科系的成員組成？</span>
+                            </summary>
+                            <div class="answer-content border-t border-gray-700 text-gray-400">
+                                雖然我們起源於**白帽社群**，但我們歡迎所有對網路安全、網路滲透測試、韌體分析及程式設計有興趣的成員加入，特別是資工、電機、電子等相關科系的同學。跨領域合作是我們最大的優勢！
+                            </div>
+                        </details>
+
+                        <!-- Q3 -->
+                        <details class="bg-gray-800 rounded-lg faq-item">
+                            <summary class="text-lg text-white hover:text-emerald-300">
+                                <span class="summary-title">3. 團隊的活動頻率與主要形式？</span>
+                            </summary>
+                            <div class="answer-content border-t border-gray-700 text-gray-400">
+                                我們通常在每週進行兩次核心技術研討或專案進度會議。主要形式包括：實機操作工作坊（PLC/樹莓派）、CTF 挑戰、開源專案貢獻，以及邀請業界專家進行講座。
+                            </div>
+                        </details>
+                    </div>
+                </details>
+
+
+                <!-- 區塊 2: 技術與專案 -->
+                <details class="bg-gray-900 border border-emerald-700 rounded-xl shadow-xl">
+                    <summary class="text-2xl font-bold text-emerald-400 bg-gray-800 rounded-t-xl hover:bg-gray-700 transition duration-200">
+                        <span class="summary-title">技術與專案 (Tech & Projects)</span>
+                    </summary>
+                    <div class="p-6 space-y-4">
+                        
+                        <!-- Q4 -->
+                        <details class="bg-gray-800 rounded-lg faq-item">
+                            <summary class="text-lg text-white hover:text-emerald-300">
+                                <span class="summary-title">4. 目前團隊最主要的專注技術領域是什麼？</span>
+                            </summary>
+                            <div class="answer-content border-t border-gray-700 text-gray-400">
+                                我們主要專注於三個領域：
+                                <ul class="list-disc list-inside ml-4 mt-2">
+                                    <li>**ICS/SCADA 安全：** 專研 Modbus, DNP3, OPC UA 協議的漏洞。</li>
+                                    <li>**網頁安全：** 包括 XSS、CSRF、SQL 注入等常見漏洞的研究與防範。</li>
+                                    <li>**紅隊滲透測試：**模擬攻擊者視角進行 Web 和基礎架構的滲透測試。</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <!-- Q5 -->
+                        <details class="bg-gray-800 rounded-lg faq-item">
+                            <summary class="text-lg text-white hover:text-emerald-300">
+                                <span class="summary-title">5. 我需要具備哪些程式語言或技術基礎才能參與專案？</span>
+                            </summary>
+                            <div class="answer-content border-t border-gray-700 text-gray-400">
+                                建議具備基礎的 **Python** 能力（用於資安工具開發和腳本編寫）和對 **C/C++** 的基本理解（用於逆向工程和底層系統分析）。但最重要的是**對學習的熱情**，我們提供完整的入門教學資源。
+                            </div>
+                        </details>
+
+                        <!-- Q6 -->
+                        <details class="bg-gray-800 rounded-lg faq-item">
+                            <summary class="text-lg text-white hover:text-emerald-300">
+                                <span class="summary-title">6. 如何貢獻技術文件到「技術文件庫」(Repo)？</span>
+                            </summary>
+                            <div class="answer-content border-t border-gray-700 text-gray-400">
+                                我們鼓勵成員共享知識！您可以將完成的技術報告、教學文章或專案程式碼提交給任一幹部審核。通過審核後，您的貢獻將被加入文件資料庫，供所有團員學習與參考。
+                            </div>
+                        </details>
+                    </div>
+                </details>
+
+                <!-- 區塊 3: 參與方式 -->
+                <details class="bg-gray-900 border border-emerald-700 rounded-xl shadow-xl">
+                    <summary class="text-2xl font-bold text-emerald-400 bg-gray-800 rounded-t-xl hover:bg-gray-700 transition duration-200">
+                        <span class="summary-title">參與方式 (How to Join)</span>
+                    </summary>
+                    <div class="p-6 space-y-4">
+                        
+                        <!-- Q7 -->
+                        <details class="bg-gray-800 rounded-lg faq-item">
+                            <summary class="text-lg text-white hover:text-emerald-300">
+                                <span class="summary-title">7. 團隊有招募時間限制嗎？新手可以加入嗎？</span>
+                            </summary>
+                            <div class="answer-content border-t border-gray-700 text-gray-400">
+                                我們原則提出申請我們會審核加入~，但全年都歡迎有熱忱的同學聯繫我們。不論您是新手還是已經具備基礎，只要對資訊安全感興趣，我們都會有專門的助教、講師引導您入門。
+                            </div>
+                        </details>
+
+                        <!-- Q8 -->
+                        <details class="bg-gray-800 rounded-lg faq-item">
+                            <summary class="text-lg text-white hover:text-emerald-300">
+                                <span class="summary-title">8. 如何聯繫我們並遞交加入申請？</span>
+                            </summary>
+                            <div class="answer-content border-t border-gray-700 text-gray-400">
+                                您可以透過以下方式聯繫我們：
+                                <ul class="list-disc list-inside ml-4 mt-2">
+                                    <li>**電子郵件：** contact@cybercontrol.org (請在標題註明「入隊申請」)</li>
+                                    <li>**Discord 社群：** 尋找我們的官方頻道連結</li>
+                                    <li>**找幹部：** 直接在校園內聯繫我們的幹部（請參考「幹部名單」頁面）</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                </details>
+                
+            </div>
+        </section>
+    </main>
+
+    <!-- 頁腳 (Footer) -->
+    <footer class="bg-gray-950 border-t border-emerald-900 mt-12">
+        <div class="container-section text-center text-gray-500 text-sm py-8">
+            <p>&copy; NIHS_CE_IWHC白帽社群官網</p>
+            <p>聯絡我們：nihsceiwhc@gmail.com</p>
+        </div>
+    </footer>
+
+</body>
+</html>

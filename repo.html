@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技術文件庫 | NIHS_CE_IWHC白帽社群官網</title>
+    <!-- 載入 Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 設定主要字體為 Inter (具現代感) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* 自定義滾動條樣式，使用霓虹綠，更具黑客風格 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #34d399; /* Neon Green: Emerald-400 */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000000; /* Pure Black */
+        }
+
+        /* 讓所有區塊的內容最大寬度保持在 1200px 並居中 */
+        .container-section {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 4rem 1rem;
+        }
+
+        /* 標題動畫效果：霓虹漸變 */
+        .cyber-gradient {
+            background-image: linear-gradient(45deg, #10b981, #34d399, #6ee7b7); 
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* DETAILS/SUMMARY 樣式 (文件分類) */
+        details summary {
+            cursor: pointer;
+            padding: 1rem 1.5rem;
+            list-style: none; /* 隱藏原生箭頭 */
+            position: relative;
+        }
+        details summary:before {
+            content: '>'; /* 展開指示符號 */
+            position: absolute;
+            left: 1rem;
+            color: #34d399; /* Neon Green */
+            font-weight: bold;
+            transform: rotate(0);
+            transition: transform 0.2s ease;
+        }
+        details[open] summary:before {
+            content: 'v';
+            transform: rotate(0);
+        }
+        .summary-title {
+            margin-left: 1.5rem; /* 給指示符號留空間 */
+            font-weight: 700;
+        }
+        
+        /* 單個文件/連結的樣式 */
+        .repo-link {
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+        }
+        .repo-link:hover {
+            background-color: #1f2937; /* Gray-800 */
+            border-left-color: #34d399; /* Neon Green */
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-white min-h-screen">
+
+    <!-- 導覽列 (Navigation) -->
+    <header class="sticky top-0 z-50 bg-gray-950/90 backdrop-blur-sm shadow-xl border-b border-emerald-900">
+        <nav class="container-section py-4 flex justify-between items-center px-4 sm:px-6">
+            <div class="text-2xl font-bold tracking-widest text-emerald-400">
+                NIHS_CE_IWHC白帽社群官網 <span class="text-gray-400">| CLUB</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-lg">
+                <a href="index.html" class="hover:text-emerald-400 transition duration-200">首頁</a>
+                <a href="achievements.html" class="hover:text-emerald-400 transition duration-200">我們的故事</a>
+                <a href="team.html" class="hover:text-emerald-400 transition duration-200">幹部名單</a>
+                <a href="partners.html" class="hover:text-emerald-400 transition duration-200">🤝 合作社團</a>
+                <!-- 技術文件庫：活躍連結 -->
+                <a href="repo.html" class="text-emerald-400 font-bold transition duration-200 border-b-2 border-emerald-400 pb-1">技術文件庫</a>
+                <a href="Q&A.html" class="hover:text-emerald-400 transition duration-200">Q&A</a>
+            </div>
+            <button class="md:hidden text-emerald-400 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <main class="bg-gray-900">
+        <!-- 技術文件庫 (Repository) -->
+        <section id="repository" class="container-section min-h-screen">
+            <h2 class="text-5xl font-extrabold text-center mb-10">
+                <span class="cyber-gradient">技術文件庫 (Repo)</span>
+            </h2>
+            <p class="text-center text-lg text-gray-400 max-w-4xl mx-auto mb-16 font-mono">
+                // > 存取所有知識節點：從基礎協議到進階滲透技巧，持續更新中。
+            </p>
+
+            <div class="space-y-8 max-w-5xl mx-auto">
+                
+                <!-- 分類 1: 工業控制系統 (ICS) 安全 -->
+                <details class="bg-gray-800 border border-emerald-600 rounded-xl shadow-2xl shadow-emerald-700/10" open>
+                    <summary class="text-2xl font-bold text-emerald-300 bg-gray-900 rounded-t-xl hover:bg-gray-700 transition duration-200">
+                        <span class="summary-title">📁 01. ICS/SCADA 安全協議與實戰</span>
+                    </summary>
+                    <div class="p-4 space-y-2 border-t border-emerald-800">
+                        
+                        <!-- 文件 1.1 - 請將 href 替換為實際文件網址，使用 target="_blank" 確保在新分頁開啟 -->
+                        <a href="https://your-document-link.com/ics/modbus-tcp-guide.pdf" target="_blank" class="repo-link p-3 rounded-lg border-l-4 border-gray-700 block">
+                            <span class="text-cyan-400 mr-4 font-mono">[DOC-001]</span>
+                            <span class="flex-grow text-white">Modbus TCP 協議解析與常見漏洞</span>
+                            <span class="text-sm text-gray-500 hidden sm:inline">PDF | 2024-05-10</span>
+                        </a>
+
+                        <!-- 文件 1.2 - 請將 href 替換為實際文件網址，使用 target="_blank" 確保在新分頁開啟 -->
+                        <a href="https://your-document-link.com/ics/dnp3-monitoring-guide.md" target="_blank" class="repo-link p-3 rounded-lg border-l-4 border-gray-700 block">
+                            <span class="text-cyan-400 mr-4 font-mono">[DOC-002]</span>
+                            <span class="flex-grow text-white">DNP3 網路流量監測與異常偵測指南</span>
+                            <span class="text-sm text-gray-500 hidden sm:inline">MARKDOWN | 2024-04-28</span>
+                        </a>
+
+                        <!-- 文件 1.3 - 請將 href 替換為實際文件網址，使用 target="_blank" 確保在新分頁開啟 -->
+                        <a href="https://your-document-link.com/ics/plc-simulator-lab" target="_blank" class="repo-link p-3 rounded-lg border-l-4 border-gray-700 block">
+                            <span class="text-cyan-400 mr-4 font-mono">[DOC-003]</span>
+                            <span class="flex-grow text-white">IOT攻擊演練</span>
+                            <span class="text-sm text-gray-500 hidden sm:inline">LINK | 2024-03-15</span>
+                        </a>
+                    </div>
+                </details>
+
+
+                <!-- 分類 2: 網頁與應用程式滲透測試 -->
+                <details class="bg-gray-800 border border-emerald-600 rounded-xl shadow-2xl shadow-emerald-700/10">
+                    <summary class="text-2xl font-bold text-emerald-300 bg-gray-900 rounded-t-xl hover:bg-gray-700 transition duration-200">
+                        <span class="summary-title">💻 02. Web/App Pentest 紅隊技術</span>
+                    </summary>
+                    <div class="p-4 space-y-2 border-t border-emerald-800">
+                        
+                        <!-- 文件 2.1 - 請將 href 替換為實際文件網址，使用 target="_blank" 確保在新分頁開啟 -->
+                        <a href="https://your-document-link.com/web/owasp-top10-2023.pdf" target="_blank" class="repo-link p-3 rounded-lg border-l-4 border-gray-700 block">
+                            <span class="text-cyan-400 mr-4 font-mono">[DOC-004]</span>
+                            <span class="flex-grow text-white">OWASP Top 10：漏洞分析</span>
+                            <span class="text-sm text-gray-500 hidden sm:inline">PDF | 2024-06-01</span>
+                        </a>
+
+                        <!-- 文件 2.2 - 請將 href 替換為實際文件網址，使用 target="_blank" 確保在新分頁開啟 -->
+                        <a href="https://your-document-link.com/web/prototype-pollution-analysis.md" target="_blank" class="repo-link p-3 rounded-lg border-l-4 border-gray-700 block">
+                            <span class="text-cyan-400 mr-4 font-mono">[DOC-005]</span>
+                            <span class="flex-grow text-white">網站開發/WEB CTF (Prototype Pollution) 深入解析</span>
+                            <span class="text-sm text-gray-500 hidden sm:inline">MARKDOWN | 2024-05-20</span>
+                        </a>
+                    </div>
+                </details>
+
+                <!-- 分類 3: 韌體與逆向工程 -->
+                <details class="bg-gray-800 border border-emerald-600 rounded-xl shadow-2xl shadow-emerald-700/10">
+                    <summary class="text-2xl font-bold text-emerald-300 bg-gray-900 rounded-t-xl hover:bg-gray-700 transition duration-200">
+                        <span class="summary-title">⚙️ 03. 逆向工程</span>
+                    </summary>
+                    <div class="p-4 space-y-2 border-t border-emerald-800">
+                        
+                        <!-- 文件 3.1 - 請將 href 替換為實際文件網址，使用 target="_blank" 確保在新分頁開啟 -->
+                        <a href="https://your-document-link.com/firmware/ghidra-mips-intro.pdf" target="_blank" class="repo-link p-3 rounded-lg border-l-4 border-gray-700 block">
+                            <span class="text-cyan-400 mr-4 font-mono">[DOC-006]</span>
+                            <span class="flex-grow text-white">入門指南：使用資安入門筆記</span>
+                            <span class="text-sm text-gray-500 hidden sm:inline">PDF | 2024-04-10</span>
+                        </a>
+
+                        <!-- 文件 3.2 - 請將 href 替換為實際文件網址，使用 target="_blank" 確保在新分頁開啟 -->
+                        <a href="https://your-document-link.com/firmware/buffer-overflow-lab.md" target="_blank" class="repo-link p-3 rounded-lg border-l-4 border-gray-700 block">
+                            <span class="text-cyan-400 mr-4 font-mono">[DOC-007]</span>
+                            <span class="flex-grow text-white">密碼學的操作 (Buffer Overflow Lab)</span>
+                            <span class="text-sm text-gray-500 hidden sm:inline">MARKDOWN | 2024-03-01</span>
+                        </a>
+                    </div>
+                </details>
+                
+            </div>
+        </section>
+    </main>
+
+    <!-- 頁腳 (Footer) -->
+    <footer class="bg-gray-950 border-t border-emerald-900 mt-12">
+        <div class="container-section text-center text-gray-500 text-sm py-8">
+            <p>&copy; NIHS_CE_IWHC白帽社群官網 </p>
+            <p>聯絡我們：nihsceiwhc@gmail.com</p>
+        </div>
+    </footer>
+</body>
+</html>
