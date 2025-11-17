@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>技術文件庫 | NIHS_CED_IWHC白帽社群官網</title>
+    <title>我們輝煌的戰績 | NIHS_CED_IWHC白帽社群官網</title>
     <!-- 載入 Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -41,7 +41,7 @@
             color: transparent;
         }
         
-        /* DETAILS/SUMMARY 樣式 (文件分類) */
+        /* DETAILS/SUMMARY 樣式 (戰績分類) */
         details summary {
             cursor: pointer;
             padding: 1rem 1.5rem;
@@ -66,16 +66,32 @@
             font-weight: 700;
         }
         
-        /* 單個文件/連結的樣式 */
+        /* 單個戰績/連結的樣式 */
         .repo-link {
             transition: all 0.2s ease;
+            /* 調整 flex 佈局以更好地容納圖片和文字 */
             display: flex;
-            align-items: center;
+            align-items: center; 
+            padding: 1rem 0.5rem; /* 增加垂直邊距 */
         }
         .repo-link:hover {
             background-color: #1f2937; /* Gray-800 */
             border-left-color: #34d399; /* Neon Green */
             transform: translateX(5px);
+        }
+        /* 圖片佔位符樣式 */
+        .img-placeholder {
+            width: 80px; /* 固定寬度 */
+            height: 64px; /* 固定高度 (例如 16/9 比例) */
+            min-width: 80px;
+            background-color: #374151; /* Gray-700 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+            margin-right: 1rem;
+            border: 1px solid #4b5563; /* Gray-600 */
+            overflow: hidden;
         }
     </style>
 </head>
@@ -92,8 +108,8 @@
                 <a href="achievements.html" class="hover:text-emerald-400 transition duration-200">我們的故事</a>
                 <a href="team.html" class="hover:text-emerald-400 transition duration-200">幹部名單</a>
                 <a href="partners.html" class="hover:text-emerald-400 transition duration-200">🤝 合作社團</a>
-                <!-- 技術文件庫：活躍連結 -->
-                <a href="repo.html" class="text-emerald-400 font-bold transition duration-200 border-b-2 border-emerald-400 pb-1">技術文件庫</a>
+                <!-- 我們輝煌的戰績：活躍連結 -->
+                <a href="repo.html" class="text-emerald-400 font-bold transition duration-200 border-b-2 border-emerald-400 pb-1">我們輝煌的戰績</a>
                 <a href="Q&A.html" class="hover:text-emerald-400 transition duration-200">Q&A</a>
             </div>
             <button class="md:hidden text-emerald-400 focus:outline-none">
@@ -105,91 +121,220 @@
     </header>
 
     <main class="bg-gray-900">
-        <!-- 技術文件庫 (Repository) -->
-        <section id="repository" class="container-section min-h-screen">
+        <!-- 我們輝煌的戰績 (Achievements) -->
+        <section id="achievements" class="container-section min-h-screen">
             <h2 class="text-5xl font-extrabold text-center mb-10">
-                <span class="cyber-gradient">技術文件庫 (Repo)</span>
+                <span class="cyber-gradient">我們輝煌的戰績</span>
             </h2>
             <p class="text-center text-lg text-gray-400 max-w-4xl mx-auto mb-16 font-mono">
-                // > 存取所有知識節點：從基礎協議到進階滲透技巧，持續更新中。
+                // > 紀錄每一次勝利與榮耀：涵蓋資安、機器人、技能競賽與專案成果。
             </p>
 
             <div class="space-y-8 max-w-5xl mx-auto">
                 
-                <!-- 分類 1: 工業控制系統 (ICS) 安全 -->
+                <!-- Category 1: 資安競賽紀錄 (原 CTF) -->
                 <details class="bg-gray-800 border border-emerald-600 rounded-xl shadow-2xl shadow-emerald-700/10" open>
                     <summary class="text-2xl font-bold text-emerald-300 bg-gray-900 rounded-t-xl hover:bg-gray-700 transition duration-200">
-                        <span class="summary-title">📁 01. ICS/SCADA 安全協議與實戰</span>
+                        <span class="summary-title">🛡️ 01. 資安競賽紀錄</span>
                     </summary>
                     <div class="p-4 space-y-2 border-t border-emerald-800">
                         
-                        <!-- 文件 1.1 - 請將 href 替換為實際文件網址，使用 target="_blank" 確保在新分頁開啟 -->
-                        <a href="https://your-document-link.com/ics/modbus-tcp-guide.pdf" target="_blank" class="repo-link p-3 rounded-lg border-l-4 border-gray-700 block">
-                            <span class="text-cyan-400 mr-4 font-mono">[DOC-001]</span>
-                            <span class="flex-grow text-white">Modbus TCP 協議解析與常見漏洞</span>
-                            <span class="text-sm text-gray-500 hidden sm:inline">PDF | 2024-05-10</span>
+                        <!-- 戰績 1.1 - 包含圖片空位 -->
+                        <a href="https://ctf-link.com/win-taiwan-cybersec" target="_blank" class="repo-link rounded-lg border-l-4 border-gray-700 block">
+                            <!-- Image Placeholder -->
+                            <div class="img-placeholder">
+                                <!-- 實際使用時，請將這裡的 span 替換為 <img src="[URL]" alt="[Alt Text]" class="w-full h-full object-cover"> -->
+                                <span class="text-gray-400 text-xs">照片空位</span>
+                            </div>
+                            
+                            <div class="flex flex-col sm:flex-row flex-grow items-start sm:items-center">
+                                <div class="flex-grow">
+                                    <span class="text-yellow-400 mr-2 font-mono text-sm">[SEC-001]</span>
+                                    <span class="text-white font-semibold block sm:inline">臺灣資安菁英挑戰賽 (TCSEC)</span>
+                                </div>
+                                <span class="text-sm text-gray-500 mt-1 sm:mt-0 sm:ml-4 flex-shrink-0">2024年 | 榮獲第一名</span>
+                            </div>
                         </a>
 
-                        <!-- 文件 1.2 - 請將 href 替換為實際文件網址，使用 target="_blank" 確保在新分頁開啟 -->
-                        <a href="https://your-document-link.com/ics/dnp3-monitoring-guide.md" target="_blank" class="repo-link p-3 rounded-lg border-l-4 border-gray-700 block">
-                            <span class="text-cyan-400 mr-4 font-mono">[DOC-002]</span>
-                            <span class="flex-grow text-white">DNP3 網路流量監測與異常偵測指南</span>
-                            <span class="text-sm text-gray-500 hidden sm:inline">MARKDOWN | 2024-04-28</span>
-                        </a>
+                        <!-- 戰績 1.2 - 包含圖片空位 -->
+                        <a href="https://ctf-link.com/win-regional-ctf" target="_blank" class="repo-link rounded-lg border-l-4 border-gray-700 block">
+                             <!-- Image Placeholder -->
+                            <div class="img-placeholder">
+                                <span class="text-gray-400 text-xs">照片空位</span>
+                            </div>
 
-                        <!-- 文件 1.3 - 請將 href 替換為實際文件網址，使用 target="_blank" 確保在新分頁開啟 -->
-                        <a href="https://your-document-link.com/ics/plc-simulator-lab" target="_blank" class="repo-link p-3 rounded-lg border-l-4 border-gray-700 block">
-                            <span class="text-cyan-400 mr-4 font-mono">[DOC-003]</span>
-                            <span class="flex-grow text-white">IOT攻擊演練</span>
-                            <span class="text-sm text-gray-500 hidden sm:inline">LINK | 2024-03-15</span>
+                            <div class="flex flex-col sm:flex-row flex-grow items-start sm:items-center">
+                                <div class="flex-grow">
+                                    <span class="text-yellow-400 mr-2 font-mono text-sm">[SEC-002]</span>
+                                    <span class="text-white">區域高中職 CTF 大賽</span>
+                                </div>
+                                <span class="text-sm text-gray-500 mt-1 sm:mt-0 sm:ml-4 flex-shrink-0">2023年 | 總成績第三名</span>
+                            </div>
                         </a>
                     </div>
                 </details>
 
-
-                <!-- 分類 2: 網頁與應用程式滲透測試 -->
+                <!-- Category 2: 機器人競賽獲獎紀錄 (New) -->
                 <details class="bg-gray-800 border border-emerald-600 rounded-xl shadow-2xl shadow-emerald-700/10">
                     <summary class="text-2xl font-bold text-emerald-300 bg-gray-900 rounded-t-xl hover:bg-gray-700 transition duration-200">
-                        <span class="summary-title">💻 02. Web/App Pentest 紅隊技術</span>
+                        <span class="summary-title">🤖 02. 機器人競賽獲獎紀錄</span>
                     </summary>
                     <div class="p-4 space-y-2 border-t border-emerald-800">
                         
-                        <!-- 文件 2.1 - 請將 href 替換為實際文件網址，使用 target="_blank" 確保在新分頁開啟 -->
-                        <a href="https://your-document-link.com/web/owasp-top10-2023.pdf" target="_blank" class="repo-link p-3 rounded-lg border-l-4 border-gray-700 block">
-                            <span class="text-cyan-400 mr-4 font-mono">[DOC-004]</span>
-                            <span class="flex-grow text-white">OWASP Top 10：漏洞分析</span>
-                            <span class="text-sm text-gray-500 hidden sm:inline">PDF | 2024-06-01</span>
+                        <!-- 戰績 2.1 - 包含圖片空位 -->
+                        <a href="https://robot-link.com/world-robot-olympiad" target="_blank" class="repo-link rounded-lg border-l-4 border-gray-700 block">
+                            <!-- Image Placeholder -->
+                            <div class="img-placeholder">
+                                <span class="text-gray-400 text-xs">照片空位</span>
+                            </div>
+                            
+                            <div class="flex flex-col sm:flex-row flex-grow items-start sm:items-center">
+                                <div class="flex-grow">
+                                    <span class="text-sky-400 mr-2 font-mono text-sm">[ROB-001]</span>
+                                    <span class="text-white font-semibold block sm:inline">國際奧林匹克機器人競賽 (WRO)</span>
+                                </div>
+                                <span class="text-sm text-gray-500 mt-1 sm:mt-0 sm:ml-4 flex-shrink-0">2024年 | 國家代表隊選拔賽 - 亞軍</span>
+                            </div>
                         </a>
 
-                        <!-- 文件 2.2 - 請將 href 替換為實際文件網址，使用 target="_blank" 確保在新分頁開啟 -->
-                        <a href="https://your-document-link.com/web/prototype-pollution-analysis.md" target="_blank" class="repo-link p-3 rounded-lg border-l-4 border-gray-700 block">
-                            <span class="text-cyan-400 mr-4 font-mono">[DOC-005]</span>
-                            <span class="flex-grow text-white">網站開發/WEB CTF (Prototype Pollution) 深入解析</span>
-                            <span class="text-sm text-gray-500 hidden sm:inline">MARKDOWN | 2024-05-20</span>
+                        <!-- 戰績 2.2 - 包含圖片空位 -->
+                        <a href="https://robot-link.com/vex-robotics" target="_blank" class="repo-link rounded-lg border-l-4 border-gray-700 block">
+                             <!-- Image Placeholder -->
+                            <div class="img-placeholder">
+                                <span class="text-gray-400 text-xs">照片空位</span>
+                            </div>
+                            
+                            <div class="flex flex-col sm:flex-row flex-grow items-start sm:items-center">
+                                <div class="flex-grow">
+                                    <span class="text-sky-400 mr-2 font-mono text-sm">[ROB-002]</span>
+                                    <span class="text-white">VEX 機器人世界大賽 (台灣區)</span>
+                                </div>
+                                <span class="text-sm text-gray-500 mt-1 sm:mt-0 sm:ml-4 flex-shrink-0">2023年 | 創意設計獎</span>
+                            </div>
                         </a>
                     </div>
                 </details>
 
-                <!-- 分類 3: 韌體與逆向工程 -->
+                <!-- Category 3: 技能競賽紀錄 (New) -->
                 <details class="bg-gray-800 border border-emerald-600 rounded-xl shadow-2xl shadow-emerald-700/10">
                     <summary class="text-2xl font-bold text-emerald-300 bg-gray-900 rounded-t-xl hover:bg-gray-700 transition duration-200">
-                        <span class="summary-title">⚙️ 03. 逆向工程</span>
+                        <span class="summary-title">🏅 03. 技能競賽紀錄</span>
                     </summary>
                     <div class="p-4 space-y-2 border-t border-emerald-800">
                         
-                        <!-- 文件 3.1 - 請將 href 替換為實際文件網址，使用 target="_blank" 確保在新分頁開啟 -->
-                        <a href="https://your-document-link.com/firmware/ghidra-mips-intro.pdf" target="_blank" class="repo-link p-3 rounded-lg border-l-4 border-gray-700 block">
-                            <span class="text-cyan-400 mr-4 font-mono">[DOC-006]</span>
-                            <span class="flex-grow text-white">入門指南：使用資安入門筆記</span>
-                            <span class="text-sm text-gray-500 hidden sm:inline">PDF | 2024-04-10</span>
+                        <!-- 戰績 3.1 - 包含圖片空位 -->
+                        <a href="https://skill-link.com/national-tech-comp" target="_blank" class="repo-link rounded-lg border-l-4 border-gray-700 block">
+                            <!-- Image Placeholder -->
+                            <div class="img-placeholder">
+                                <span class="text-gray-400 text-xs">照片空位</span>
+                            </div>
+                            
+                            <div class="flex flex-col sm:flex-row flex-grow items-start sm:items-center">
+                                <div class="flex-grow">
+                                    <span class="text-indigo-400 mr-2 font-mono text-sm">[SKL-001]</span>
+                                    <span class="text-white font-semibold block sm:inline">全國高級中等學校專業群科實作競賽</span>
+                                </div>
+                                <span class="text-sm text-gray-500 mt-1 sm:mt-0 sm:ml-4 flex-shrink-0">2024年 | 網路架設職種 - 金手獎</span>
+                            </div>
                         </a>
 
-                        <!-- 文件 3.2 - 請將 href 替換為實際文件網址，使用 target="_blank" 確保在新分頁開啟 -->
-                        <a href="https://your-document-link.com/firmware/buffer-overflow-lab.md" target="_blank" class="repo-link p-3 rounded-lg border-l-4 border-gray-700 block">
-                            <span class="text-cyan-400 mr-4 font-mono">[DOC-007]</span>
-                            <span class="flex-grow text-white">密碼學的操作 (Buffer Overflow Lab)</span>
-                            <span class="text-sm text-gray-500 hidden sm:inline">MARKDOWN | 2024-03-01</span>
+                        <!-- 戰績 3.2 - 包含圖片空位 -->
+                        <a href="https://skill-link.com/ict-olympiad" target="_blank" class="repo-link rounded-lg border-l-4 border-gray-700 block">
+                             <!-- Image Placeholder -->
+                            <div class="img-placeholder">
+                                <span class="text-gray-400 text-xs">照片空位</span>
+                            </div>
+                            
+                            <div class="flex flex-col sm:flex-row flex-grow items-start sm:items-center">
+                                <div class="flex-grow">
+                                    <span class="text-indigo-400 mr-2 font-mono text-sm">[SKL-002]</span>
+                                    <span class="text-white">全國資訊技術能力競賽 (ICT)</span>
+                                </div>
+                                <span class="text-sm text-gray-500 mt-1 sm:mt-0 sm:ml-4 flex-shrink-0">2023年 | 程式設計組 - 優等</span>
+                            </div>
                         </a>
+                    </div>
+                </details>
+
+                <!-- Category 4: 資安專案與研究成果 (調整順序) -->
+                <details class="bg-gray-800 border border-emerald-600 rounded-xl shadow-2xl shadow-emerald-700/10">
+                    <summary class="text-2xl font-bold text-emerald-300 bg-gray-900 rounded-t-xl hover:bg-gray-700 transition duration-200">
+                        <span class="summary-title">🛠️ 04. 資安專案與研究成果</span>
+                    </summary>
+                    <div class="p-4 space-y-2 border-t border-emerald-800">
+                        
+                        <!-- 專案 4.1 - 包含圖片空位 -->
+                        <a href="https://project-link.com/ics-defense-report" target="_blank" class="repo-link rounded-lg border-l-4 border-gray-700 block">
+                            <!-- Image Placeholder -->
+                            <div class="img-placeholder">
+                                <span class="text-gray-400 text-xs">照片空位</span>
+                            </div>
+
+                            <div class="flex flex-col sm:flex-row flex-grow items-start sm:items-center">
+                                <div class="flex-grow">
+                                    <span class="text-lime-400 mr-2 font-mono text-sm">[PRO-001]</span>
+                                    <span class="flex-grow text-white font-semibold block sm:inline">工業控制系統 (ICS) 模擬防禦報告</span>
+                                </div>
+                                <span class="text-sm text-gray-500 mt-1 sm:mt-0 sm:ml-4 flex-shrink-0">研究報告 | 2024-05</span>
+                            </div>
+                        </a>
+
+                        <!-- 專案 4.2 - 包含圖片空位 -->
+                        <a href="https://project-link.com/firmware-analysis-tool" target="_blank" class="repo-link rounded-lg border-l-4 border-gray-700 block">
+                             <!-- Image Placeholder -->
+                            <div class="img-placeholder">
+                                <span class="text-gray-400 text-xs">照片空位</span>
+                            </div>
+
+                            <div class="flex flex-col sm:flex-row flex-grow items-start sm:items-center">
+                                <div class="flex-grow">
+                                    <span class="text-lime-400 mr-2 font-mono text-sm">[PRO-002]</span>
+                                    <span class="flex-grow text-white">自製 IoT 設備韌體漏洞分析工具 v1.0</span>
+                                </div>
+                                <span class="text-sm text-gray-500 mt-1 sm:mt-0 sm:ml-4 flex-shrink-0">GitHub | 2024-03</span>
+                            </div>
+                        </a>
+                    </div>
+                </details>
+
+                <!-- Category 5: 專業證書與技能認證 (調整順序) -->
+                <details class="bg-gray-800 border border-emerald-600 rounded-xl shadow-2xl shadow-emerald-700/10">
+                    <summary class="text-2xl font-bold text-emerald-300 bg-gray-900 rounded-t-xl hover:bg-gray-700 transition duration-200">
+                        <span class="summary-title">📜 05. 專業證書與技能認證</span>
+                    </summary>
+                    <div class="p-4 space-y-2 border-t border-emerald-800">
+                        
+                        <!-- 認證 5.1 - 包含圖片空位 -->
+                        <div class="repo-link rounded-lg border-l-4 border-gray-700 block">
+                            <!-- Image Placeholder -->
+                            <div class="img-placeholder">
+                                <span class="text-gray-400 text-xs">照片空位</span>
+                            </div>
+                            
+                            <div class="flex flex-col sm:flex-row flex-grow items-start sm:items-center">
+                                <div class="flex-grow">
+                                    <span class="text-orange-400 mr-2 font-mono text-sm">[CERT-001]</span>
+                                    <span class="flex-grow text-white font-semibold block sm:inline">Ethical Hacking 基礎認證 (CEH)</span>
+                                </div>
+                                <span class="text-sm text-gray-500 mt-1 sm:mt-0 sm:ml-4 flex-shrink-0">2024年 | 12位成員通過</span>
+                            </div>
+                        </div>
+
+                        <!-- 認證 5.2 - 包含圖片空位 -->
+                        <div class="repo-link rounded-lg border-l-4 border-gray-700 block">
+                             <!-- Image Placeholder -->
+                            <div class="img-placeholder">
+                                <span class="text-gray-400 text-xs">照片空位</span>
+                            </div>
+
+                            <div class="flex flex-col sm:flex-row flex-grow items-start sm:items-center">
+                                <div class="flex-grow">
+                                    <span class="text-orange-400 mr-2 font-mono text-sm">[CERT-002]</span>
+                                    <span class="flex-grow text-white">Cisco CCNA (Routing & Switching)</span>
+                                </div>
+                                <span class="text-sm text-gray-500 mt-1 sm:mt-0 sm:ml-4 flex-shrink-0">2023年 | 8位成員通過</span>
+                            </div>
+                        </div>
                     </div>
                 </details>
                 
@@ -206,4 +351,3 @@
     </footer>
 </body>
 </html>
-
