@@ -73,21 +73,33 @@
             <div class="text-2xl font-bold tracking-widest text-emerald-400">
                 NIHS_CED_IWHC白帽社群官網 <span class="text-gray-400">| CLUB</span>
             </div>
-            <div class="hidden md:flex space-x-8 text-lg">
+            <!-- 電腦版選單 -->
+            <div id="desktop-menu" class="hidden md:flex space-x-8 text-lg">
                 <!-- 首頁高亮 -->
                 <a href="index.html" class="text-emerald-400 font-bold transition duration-200">首頁</a>
                 <a href="achievements.html" class="hover:text-emerald-400 transition duration-200">我們的故事</a>
                 <a href="team.html" class="hover:text-emerald-400 transition duration-200">幹部名單</a>
                 <a href="partners.html" class="hover:text-emerald-400 transition duration-200">合作社團</a>
-                <a href="repo.html" class="text-emerald-400 font-bold neon-glow transition duration-300 border-b-2 border-emerald-400 pb-1">我們的輝煌的戰績</a>
+                <a href="repo.html" class="hover:text-emerald-400 transition duration-200">我們的輝煌的戰績</a>
                 <a href="Q&A.html" class="hover:text-emerald-400 transition duration-200">Q&A</a>
             </div>
-            <button class="md:hidden text-emerald-400 focus:outline-none">
+            <!-- 手機版漢堡按鈕 -->
+            <button id="mobile-menu-button" class="md:hidden text-emerald-400 focus:outline-none">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
             </button>
         </nav>
+        
+        <!-- 手機版選單 (預設隱藏) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/90 border-t border-emerald-900">
+            <a href="index.html" class="block py-3 px-4 text-lg text-white hover:bg-gray-800 hover:text-emerald-400 transition duration-200">首頁</a>
+            <a href="achievements.html" class="block py-3 px-4 text-lg text-white hover:bg-gray-800 hover:text-emerald-400 transition duration-200">我們的故事</a>
+            <a href="team.html" class="block py-3 px-4 text-lg text-white hover:bg-gray-800 hover:text-emerald-400 transition duration-200">幹部名單</a>
+            <a href="partners.html" class="block py-3 px-4 text-lg text-white hover:bg-gray-800 hover:text-emerald-400 transition duration-200">🤝 合作社團</a>
+            <a href="repo.html" class="block py-3 px-4 text-lg text-white hover:bg-gray-800 hover:text-emerald-400 transition duration-200">我們的輝煌的戰績</a>
+            <a href="Q&A.html" class="block py-3 px-4 text-lg text-white hover:bg-gray-800 hover:text-emerald-400 transition duration-200">Q&A</a>
+        </div>
     </header>
 
     <main class="bg-black">
@@ -104,11 +116,11 @@
                     網路資安的攻防戰術與實體系統的防護策略
                 </p>
                 
-                <div class="space-x-4">
-                    <a href="Q&A.html" class="neon-button inline-block py-3 px-8 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg transition duration-300">
+                <div class="space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="Q&A.html" class="neon-button inline-block w-full sm:w-auto py-3 px-8 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg transition duration-300">
                         查看我們的Q&A
                     </a>
-                    <a href="team.html" class="neon-button inline-block py-3 px-8 border border-emerald-600 text-emerald-400 hover:bg-emerald-900/50 font-bold rounded-lg transition duration-300">
+                    <a href="team.html" class="neon-button inline-block w-full sm:w-auto py-3 px-8 border border-emerald-600 text-emerald-400 hover:bg-emerald-900/50 font-bold rounded-lg transition duration-300">
                         認識我們的幹部
                     </a>
                 </div>
@@ -131,6 +143,7 @@
 
         function initThree() {
             const container = document.getElementById('three-container');
+            if (!container) return; // 如果找不到容器就退出
             
             // 1. 場景 (Scene)
             scene = new THREE.Scene();
@@ -163,12 +176,14 @@
         }
 
         function onWindowResize() {
+            if (!camera || !renderer) return;
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
         }
 
         function animate() {
+            if (!mesh || !renderer || !scene || !camera) return;
             requestAnimationFrame(animate);
 
             // 緩慢旋轉
@@ -183,8 +198,17 @@
             animate();
         };
     </script>
+    
+    <!-- 手機選單開關的 JS -->
+    <script>
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (menuButton && mobileMenu) {
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
 </body>
 </html>
-
-
-
